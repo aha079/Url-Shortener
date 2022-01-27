@@ -1,0 +1,41 @@
+version: "3"
+services:
+  mongo:
+    image: 'mongo'
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=url-shortener
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    volumes:
+      - /opt/data/post/:/data/db
+    ports:
+      - '27017-27019:27017-27019'
+    networks:
+      - shared-net
+
+
+  app:
+    image: 'alirezaak2000/urlshortener:1.0'
+    container_name: app
+    environment:
+      - PORT=8090
+      - BASE_URL=localhost:8090
+      - EXPIRE_TIME=60
+      - SPRING_DATA_MONGO_HOST=mongo
+      - SPRING_DATA_MONGO_PASSWORD=123456
+      - SPRING_DATA_MONGO_USER=root
+      - SPRING_DATA_MONGO_DATABASE=url-shortener
+
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    networks:
+      - shared-net
+    ports:
+      - '8090:8090'
+
+networks:
+  shared-net:
+    driver: bridge

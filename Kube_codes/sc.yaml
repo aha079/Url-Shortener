@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+data:
+  MONGO_INITDB_ROOT_USERNAME: cm9vdA==
+  MONGO_INITDB_ROOT_PASSWORD: MTIzNDU2
+immutable: true
+

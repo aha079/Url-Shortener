@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  PORT: "8090"
+  BASE_URL: app-service:8090
+  EXPIRE_TIME: "60"
+  SPRING_DATA_MONGO_HOST: db-service
+  SPRING_DATA_MONGO_DATABASE: url-shortener
+  spring.data.mongodb.authentication-database: admin
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-11-27T12:48:59Z"
+  name: special-config
+  namespace: default
+  resourceVersion: "2921"
+  uid: 3c9840a5-2858-4b58-8752-276b93895e8f
