@@ -10,4 +10,4 @@ spring:
     mongodb:
       uri: mongodb://${SPRING_DATA_MONGO_USER}:${SPRING_DATA_MONGO_PASSWORD}@${SPRING_DATA_MONGO_HOST}:27017/
       auto-index-creation: true
-      database: ${SPRING_DATA_MONGO_DATABASE
+      database: ${SPRING_DATA_MONGO_DATABASE}
